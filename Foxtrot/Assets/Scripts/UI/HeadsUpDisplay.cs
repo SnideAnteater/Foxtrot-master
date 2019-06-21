@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace ArcadeJets
+namespace Foxtrot
 {
    public class HeadsUpDisplay : MonoBehaviour
    {
