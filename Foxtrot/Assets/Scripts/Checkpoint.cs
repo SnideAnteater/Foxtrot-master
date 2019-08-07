@@ -66,7 +66,7 @@ public class Checkpoint : MonoBehaviour
         if(other.tag == "checkpoint1")
         {
             checkpoint1 = true;
-            checkpoint9 = true;
+            //checkpoint9 = true;
             checks = 1;
         }
         else if (other.tag == "checkpoint2" && checkpoint1 == true)
