@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Foxtrot
 {
@@ -9,6 +10,7 @@ namespace Foxtrot
    {
       [Tooltip("Controller for the jet.")]
       public StickInput input;
+        public Checkpoint checkpoint;
 
       [Tooltip("How powerfully the plane can maneuver in each axis.\n\nX: Pitch\nY: Yaw\nZ: Roll")]
       public Vector3 turnTorques = new Vector3(60.0f, 10.0f, 90.0f);
@@ -24,11 +26,15 @@ namespace Foxtrot
       private Rigidbody rigid;
 
       private float throttleTrue = StickInput.ThrottleNeutral;
+      private float deathTime;
+      private float deathDuration = 2;
 
-      // Heavy things often require big numbers. It's nice to keep this multiplier on the
-      // same scale as your mass to keep numbers small and manageable. For example, if your
-      // game has mass in the hundreds, then use 100. If thousands, then 1000, etc.
-      private const float FORCE_MULT = 100.0f;
+      public GameObject deathExplosion;
+
+        // Heavy things often require big numbers. It's nice to keep this multiplier on the
+        // same scale as your mass to keep numbers small and manageable. For example, if your
+        // game has mass in the hundreds, then use 100. If thousands, then 1000, etc.
+        private const float FORCE_MULT = 100.0f;
 
       public Rigidbody Rigidbody { get { return rigid; } }
       public StickInput StickInput { get { return input; } }
@@ -47,6 +53,22 @@ namespace Foxtrot
 
       private void FixedUpdate()
       {
+         //if player is dead(has deathTime)
+         if(deathTime != 0)
+            {
+                // Wait x seconds, then reload scene
+                if(Time.time - deathTime > deathDuration)
+                {
+                    SceneManager.LoadScene("Game");
+                }
+
+                return;
+            }
+         else if(checkpoint.checkpoint9 == true)
+            {
+                Time.timeScale = 0.0f;
+            }
+
          // When the throttle goes below neutral, apply increased acceleration to slow down faster.
          float throttleTarget = GetTargetThrottle();
          float brakePower = brakeDrag * Mathf.InverseLerp(StickInput.ThrottleNeutral, StickInput.ThrottleMin, throttleTarget);
@@ -96,5 +118,24 @@ namespace Foxtrot
          retVec.z *= b.z;
          return retVec;
       }
-   }
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.tag == "Terrain")
+            {
+            // Set a death timestamp
+            deathTime = Time.time;
+
+            // Player explosion effect
+            GameObject go = Instantiate(deathExplosion) as GameObject;
+            go.transform.position = transform.position;
+
+            // Hide player mesh
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(false);
+            transform.GetChild(3).gameObject.SetActive(false);
+            }
+        }
+
+
+    }
 }

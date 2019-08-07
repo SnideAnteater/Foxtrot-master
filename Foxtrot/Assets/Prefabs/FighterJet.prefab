@@ -462,9 +462,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1988f41b4f5e2b546b198a3c0565d8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
   isPlayer: 1
   stickInput: {x: 0, y: 0, z: 0}
   throttle: 0
+  target: 0.33
 --- !u!114 &114146452781626774
 MonoBehaviour:
   m_ObjectHideFlags: 0

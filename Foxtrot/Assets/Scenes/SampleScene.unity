@@ -283,6 +283,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5863c855308afc7459843e1615c2724d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint1: {fileID: 0}
+  checkpoint2: {fileID: 0}
+  checkpoint3: {fileID: 0}
+  checkpoint4: {fileID: 0}
+  checkpoint5: {fileID: 0}
+  checkpoint6: {fileID: 0}
+  checkpoint7: {fileID: 0}
+  checkpoint8: {fileID: 0}
+  checkpoint9: {fileID: 0}
+  checkpoint10: {fileID: 0}
+--- !u!65 &378867224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378867222}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.073921, y: 1.3849144, z: 17.348297}
+  m_Center: {x: -0.07312393, y: -0.083776474, z: 0.5263214}
 --- !u!1 &579327824
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +552,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438194758}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a2a0e6ff3481a3745bb46440a47ea48a, type: 2}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 739560bff385c95429d29c5ee5841e31, type: 2}
   m_EnableTreeColliders: 0
@@ -740,7 +763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77500004, y: 0.0707248}
   m_AnchorMax: {x: 0.9436306, y: 0.23444961}
-  m_AnchoredPosition: {x: -0.2000122, y: 0.3999939}
+  m_AnchoredPosition: {x: -0.2000122, y: 0.39996338}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1797516083
@@ -1323,7 +1346,29 @@ PrefabInstance:
       propertyPath: bankTorque
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114146452781626774, guid: ce18aff36ac49864fa7fe4b4dca24523,
+        type: 3}
+      propertyPath: deathExplosion
+      value: 
+      objectReference: {fileID: 1993191664953998, guid: 84e419f387835584b9ef87943e0b047e,
+        type: 3}
+    - target: {fileID: 136089152280315272, guid: ce18aff36ac49864fa7fe4b4dca24523,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136384419219329218, guid: ce18aff36ac49864fa7fe4b4dca24523,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136419818299169252, guid: ce18aff36ac49864fa7fe4b4dca24523,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114284937913884322, guid: ce18aff36ac49864fa7fe4b4dca24523, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce18aff36ac49864fa7fe4b4dca24523, type: 3}
 --- !u!114 &2111408743 stripped
 MonoBehaviour:
